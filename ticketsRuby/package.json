@@ -1,0 +1,14 @@
+{
+  "name": "ticketsRuby",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.2",
+    "@rails/webpacker": "^4.2.2",
+    "email-validator": "^2.0.4",
+    "turbolinks": "^5.2.0",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "version": "0.1.0"
+}
