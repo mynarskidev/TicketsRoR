@@ -18,6 +18,7 @@ class TicketsTest < ApplicationSystemTestCase
     fill_in "Email address", with: @ticket.email_address
     fill_in "Name", with: @ticket.name
     fill_in "Price", with: @ticket.price
+    fill_in "Phone number", with: @ticket.phone
     fill_in "Seat id seq", with: @ticket.seat_id_seq
     click_on "Create Ticket"
 
@@ -33,6 +34,7 @@ class TicketsTest < ApplicationSystemTestCase
     fill_in "Email address", with: @ticket.email_address
     fill_in "Name", with: @ticket.name
     fill_in "Price", with: @ticket.price
+    fill_in "Phone number", with: @ticket.phone
     fill_in "Seat id seq", with: @ticket.seat_id_seq
     click_on "Update Ticket"
 

@@ -6,6 +6,7 @@ one:
   address: MyText
   price: 9.99
   email_address: MyString
+  phone: MyString
 
 two:
   name: MyString
@@ -13,3 +14,4 @@ two:
   address: MyText
   price: 9.99
   email_address: MyString
+  phone: MyString
