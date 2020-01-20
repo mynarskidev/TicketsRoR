@@ -5,36 +5,27 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show
-  end
-
   def new
     @event = Event.new
   end
-
   
-  # POST /events
-  # POST /events.json
   def create
-    @event = Event.new(event_params)
-    
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    event_parmas = params.require(:event).permit(:artist, :description, :price_low, :price_high, :event_date)
+    @event = Event.new(event_parmas)
+    if @event.save
+      flash[:komunikat] = 'Event was successfully created'
+      redirect_to "/events/#{@event.id}"
+    else
+      render 'new'
     end
   end
+
+  def show
+  end
   
-  # # GET /events/1/edit
-  # def edit
+  # def edit //TODO console.log
   # end
 
-  # # PATCH/PUT /events/1
-  # # PATCH/PUT /events/1.json
   # def update
   #   respond_to do |format|
   #     if @event.update(event_params)
@@ -47,8 +38,6 @@ class EventsController < ApplicationController
   #   end
   # end
 
-  # # DELETE /events/1
-  # # DELETE /events/1.json
   # def destroy
   #   @event.destroy
   #   respond_to do |format|

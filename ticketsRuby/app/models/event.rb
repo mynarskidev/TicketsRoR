@@ -1,15 +1,19 @@
 class PastDateValidator < ActiveModel::Validator
   def validate(record)
-    if record.event_date < Date.today
-      record.errors.add('Event', 'from past cannot be added')
+    if record.event_date?
+      if record.event_date < Date.today
+        record.errors.add('Event', 'from past cannot be added')
+      end
     end
   end
 end
 
 class PriceRangeValidator < ActiveModel::Validator
   def validate(record)
-    if record.price_low > record.price_high
-      record.errors.add('Maximum price', 'cannot be higher then lowest price')
+    if record.price_low?
+      if record.price_low > record.price_high
+        record.errors.add('Maximum price', 'cannot be higher then lowest price')
+      end
     end
   end
 end
