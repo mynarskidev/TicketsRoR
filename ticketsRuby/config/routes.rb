@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # get 'events/index'
+  # get 'events/new'
+  # post 'events/new' => 'events#create'
+  # get 'events/create'
+  # get 'events/:id' => 'events#show'
+  # get 'events/:id' => 'events#show'
   resources :events
   resources :tickets
   root :to => "tickets#index"
