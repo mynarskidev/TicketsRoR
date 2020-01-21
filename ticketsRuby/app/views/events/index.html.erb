@@ -1,3 +1,4 @@
+<%= link_to 'Home', root_path %>
 <h1> All events</h1> <ul>
 <% for event in @events %>
 <li><%= link_to event.artist, "/events/#{event.id}" %></li>

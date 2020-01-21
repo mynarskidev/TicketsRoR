@@ -41,6 +41,11 @@
     <%= form.text_field :phone %>
   </div>
 
+  <label for="ticket_name">Event id</label>
+  <%= form.collection_select(:event_id, Event.all, :id, :id, {:prompt   => "Select event id"}, {:id => 'events_select'}) %>
+  <%= form.hidden_field :user_id %>
+  <hr>
+
   <div class="actions">
     <%= form.submit %>
   </div>
