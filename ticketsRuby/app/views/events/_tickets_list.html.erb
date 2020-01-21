@@ -1,0 +1,36 @@
+<div>
+  <p id="notice"><%= notice %></p>
+  <h1><%= header %></h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seat id seq</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Email address</th>
+      <th>Phone</th>
+      <th>Event id</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.seat_id_seq %></td>
+        <td><%= ticket.address %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.email_address %></td>
+        <td><%= ticket.phone %></td>
+        <td><%= ticket.event_id %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'This cannot be undone! Do you want to proceed?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>

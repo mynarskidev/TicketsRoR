@@ -1,14 +1,4 @@
-class PastDateValidator < ActiveModel::Validator
-  def validate(record)
-    if record.event_date?
-      if record.event_date < Date.today
-        record.errors.add('Event', 'from past cannot be added')
-      end
-    end
-  end
-end
-
-class PriceRangeValidator < ActiveModel::Validator
+class LowerPriceNotBiggerValidator < ActiveModel::Validator
   def validate(record)
     if record.price_low?
       if record.price_low > record.price_high
@@ -18,10 +8,20 @@ class PriceRangeValidator < ActiveModel::Validator
   end
 end
 
+class DateNotInThePastValidator < ActiveModel::Validator
+  def validate(record)
+    if record.event_date?
+      if record.event_date < Date.today
+        record.errors.add('Event', 'from past cannot be added')
+      end
+    end
+  end
+end
+
 class Event < ApplicationRecord
   include ActiveModel::Validations
-  validates_with PastDateValidator
-  validates_with PriceRangeValidator
+  validates_with DateNotInThePastValidator
+  validates_with LowerPriceNotBiggerValidator
 
   validates :artist, :presence => true
   validates :price_low, :presence => true, numericality: true

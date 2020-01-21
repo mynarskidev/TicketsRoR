@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p id="komunikat"><%= flash[:komunikat] %></p>
-# <%= render "tickets_list", tickets: Ticket.where(event_id: @event.id), header: 'List of tickets for this event' %>//todo console.log
+<%= render "tickets_list", tickets: Ticket.where(event_id: @event.id), header: 'All tickets available for this event' %>
 <p>
   <strong>Artist:</strong>
   <%= @event.artist %>
@@ -25,5 +25,12 @@
   <strong>Event date:</strong>
   <%= @event.event_date %>
 </p>
+
+<hr>
+
+<h3>Add new ticket to this event:</h3>
+
+<%= render "new_ticket", ticket: Ticket.new( :event_id=>@event.id) %>
+<br>
 
 <%= link_to 'Back', events_path %>
