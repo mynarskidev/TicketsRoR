@@ -7,9 +7,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .navbar {
+        background: #c4bf81 !important;
+      }
+    </style>
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>
     <%= yield %>
   </body>
 </html>

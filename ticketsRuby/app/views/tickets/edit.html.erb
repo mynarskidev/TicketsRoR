@@ -1,8 +1,12 @@
-<%= render "events_list", events: Event.all, header: 'List of events' %>
-
-<h1>Editing Ticket</h1>
-
-<%= render 'form', ticket: @ticket %>
-
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+<div class="container mt-5">
+  <%= render "events_list", events: Event.all, header: 'List of events' %>
+  <h1>Editing Ticket</h1>
+  <%= render 'form', ticket: @ticket %>
+  <hr>
+  <button class="btn btn-default">
+    <%= link_to 'Show', @ticket %>
+  </button> |
+  <button class="btn btn-default" onclick="location.href='/tickets'" style="margin-bottom: 10px;">
+    <%= link_to 'Back', tickets_path %>
+  </button>
+</div>

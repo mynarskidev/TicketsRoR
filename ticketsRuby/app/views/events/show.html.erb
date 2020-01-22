@@ -1,36 +1,40 @@
-<p id="notice"><%= notice %></p>
-<p id="komunikat"><%= flash[:komunikat] %></p>
-<%= render "tickets_list", tickets: Ticket.where(event_id: @event.id), header: 'All tickets available for this event' %>
-<p>
-  <strong>Artist:</strong>
-  <%= @event.artist %>
-</p>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
+  <p id="komunikat"><%= flash[:komunikat] %></p>
+  <%= render "tickets_list", tickets: Ticket.where(event_id: @event.id), header: 'All tickets available for this event' %>
+  <p>
+    <strong>Artist:</strong>
+    <%= @event.artist %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <strong>Price low:</strong>
-  <%= @event.price_low %>
-</p>
+  <p>
+    <strong>Price low:</strong>
+    <%= @event.price_low %>
+  </p>
 
-<p>
-  <strong>Price high:</strong>
-  <%= @event.price_high %>
-</p>
+  <p>
+    <strong>Price high:</strong>
+    <%= @event.price_high %>
+  </p>
 
-<p>
-  <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
+  <p>
+    <strong>Event date:</strong>
+    <%= @event.event_date %>
+  </p>
 
-<hr>
+  <hr>
 
-<h3>Add new ticket to this event:</h3>
+  <h3>Add new ticket to this event:</h3>
 
-<%= render "new_ticket", ticket: Ticket.new( :event_id=>@event.id) %>
-<br>
+  <%= render "new_ticket", ticket: Ticket.new( :event_id=>@event.id) %>
+  <br>
 
-<%= link_to 'Back', events_path %>
+  <button class="btn btn-default" onclick="location.href='/events'" style="margin-bottom: 10px;">
+    <%= link_to 'Back', events_path %>
+  </button>
+</div>

@@ -1,7 +1,10 @@
-<div>
-<p id="notice"><%= notice %></p>
-<%= link_to 'Home', root_path %>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
   <%= render "events/tickets_list", tickets: Ticket.all, header: 'All available tickets' %>
   <br>
-  <%= link_to 'New Ticket', new_ticket_path %>
+  <div class="container">
+    <button class="btn btn-default" onclick="location.href='/tickets/new'" >
+      <%= link_to 'New Ticket', new_ticket_path %>
+    </button>
+  </div>
 </div>

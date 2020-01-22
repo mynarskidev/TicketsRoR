@@ -1,42 +1,44 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container">
+  <%= form_with(model: event, local: true) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :artist, style: 'margin-right: 42px;' %>
+      <%= form.text_field :artist %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, style: 'margin-right: 2px;' %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price_low, style: 'margin-right: 16px;' %>
+      <%= form.text_field :price_low %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price_high, style: 'margin-right: 11px;' %>
+      <%= form.text_field :price_high %>
+    </div>
+
+    <div class="field">
+      <%= form.label :event_date, style: 'margin-right: 7px;' %>
+      <%= form.date_select :event_date %>
+    </div>
+    <br />
+    <div class="actions" style="margin-bottom: 10px;">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price_low %>
-    <%= form.text_field :price_low %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price_high %>
-    <%= form.text_field :price_high %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_date %>
-    <%= form.date_select :event_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

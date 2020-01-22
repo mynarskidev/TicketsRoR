@@ -2,15 +2,173 @@
 <html>
 
 <head>
-  <title> Events Organization</title>
+    <title> Events Organization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <style>
+        .home {
+            width: 100%;
+            height: 30%;
+            background-image: url("https://images.unsplash.com/photo-1501238295340-c810d3c156d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+            background-position: center;
+            background-size: cover;
+            padding-bottom: 60vh;
+            overflow: hidden;
+        }
+
+        /* Welcome inscription on page load*/
+        .welcome {
+            font-family: "Courier New", Courier, monospace;
+            position: absolute;
+            font-size: 20px;
+            width: 80%;
+            margin: auto;
+            left: 0;
+            right: 0;
+            color: black;
+            padding: 7%;
+            text-align: center;
+            font-weight: bolder;
+        }
+
+        .welcome .text {
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .cursor {
+            font-family: "Courier New", Courier, monospace;
+            opacity: 0;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+        }
+
+        .cursor.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 575px) {
+            .welcome {
+                font-size: 28px;
+                width: 160px;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767px) {
+            .welcome {
+                font-size: 33px;
+                width: 220px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .welcome {
+                font-size: 38px;
+                width: 290px;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .welcome {
+                font-size: 43px;
+                width: 340px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .welcome {
+                font-size: 48px;
+                width: 390px;
+            }
+        }
+
+        .mt-5 {
+            margin-top: 5rem;
+        }
+
+        .centered {
+            padding-top: 15px;
+        }
+
+        .home-link {
+            font-size: 20px;
+        }
+
+        .navbar {
+            background: #c4bf81 !important;
+        }
+    </style>
 </head>
 
 <body>
-  <h2>Information about events and selling tickets.</h2>
-  <ul>
-    <li><a href="tickets">Tickets</a></li>
-    <li><a href="events">Events</a></li>
-  </ul>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    Tickets App
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/tickets">Tickets</a>
+                </li>
+                <li>
+                    <a href="/events">Events</a>
+                </li>
+                <!-- TODO console.log
+            <li>
+                <div class="centered">
+                    <a href="/users/sign_up">Sign up</a> |
+                    <a href="/users/sign_in">Login</a>
+                </div>
+            </li> -->
+            </ul>
+        </div>
+    </nav>
+    <div id="home" class='home'>
+        <div class="welcome d-flex justify-content-center"><span class="text"></span><span class="cursor">|</span></div>
+    </div>
+    <div class="container mt-5">
+        <h2>Information about events and selling tickets.</h2>
+        <ul>
+            <li><a href="tickets" class="home-link">Tickets</a></li>
+            <li><a href="events" class="home-link">Events</a></li>
+        </ul>
+    </div>
+
+    <script>
+        //typing welcome on page load
+        let i = -4;
+        const text = "Welcome!";
+        const speed = 160;
+
+        window.onload = typing = () => {
+            if (i < text.length) {
+                document.querySelector(".text").textContent += text.charAt(i);
+                i++;
+                setTimeout(typing, speed);
+            }
+        }
+
+        const cursorAnimation = () => {
+            const spnCursor = document.querySelector('.cursor');
+            if (spnCursor) spnCursor.classList.toggle('active');
+            else setTimeout(cursorAnimation, 1000);
+        }
+        setInterval(cursorAnimation, 700);
+    </script>
 </body>
 
 </html>
