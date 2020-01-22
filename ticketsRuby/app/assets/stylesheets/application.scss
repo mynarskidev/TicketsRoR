@@ -15,3 +15,9 @@
 .mt-5 {
   margin-top: 5rem;
 }
+
+.registration .field, .login-page .field, .edit-page .field {
+  margin: 1rem 1rem 1rem 0rem;
+  padding: 1rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
