@@ -24,10 +24,10 @@
     <strong>Phone number:</strong>
     <%= @ticket.phone %>
   </p>
-  <button class="btn btn-default">
-    <%= link_to 'Edit', edit_ticket_path(@ticket) %>
-  </button>
+
+  <% if @ticket.user == current_user %><button class="btn btn-default"><%= link_to 'Edit', edit_ticket_path(@ticket) %></button><% end %>
   <hr>
+
   <button class="btn btn-default" onclick="location.href='/tickets'" style="margin-bottom: 20px;">
     <%= link_to 'Back', tickets_path %>
   </button>

@@ -18,4 +18,5 @@ class Ticket < ApplicationRecord
   validates :seat_id_seq, :presence => true
   validates :email_address, :presence => true, format: { with: URI::MailTo::EMAIL_REGEXP }
   belongs_to :event
+  belongs_to :user
 end

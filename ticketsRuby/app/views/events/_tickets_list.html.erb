@@ -25,8 +25,10 @@
         <td><%= ticket.phone %></td>
         <td><%= ticket.event_id %></td>
         <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'This cannot be undone! Do you want to proceed?' } %></td>
+        <% if ticket.user == current_user %>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'This cannot be undone! Do you want to proceed?' } %></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>

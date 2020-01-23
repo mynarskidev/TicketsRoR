@@ -43,7 +43,8 @@
     </div>
 
     <label for="ticket_name" style="margin-right: 45px;">Event id</label>
-      <%= form.collection_select(:event_id, Event.all, :id, :id, {:prompt   => "Select event id"}, {:id => 'events_select'}) %>
+    <%= form.collection_select(:event_id, Event.all, :id, :id, {:prompt   => "Select event id"}, {:id => 'events_select'}) %>
+    <%= form.hidden_field :user_id %>
     <hr>
 
     <div class="actions">

@@ -1,4 +1,8 @@
 <div class="container mt-5">
+  <% if user_signed_in? %>
+    <%= render "events/tickets_list", tickets: Ticket.where(user_id: current_user.id), header: 'My tickets' %>
+  <% end %>
+  <hr>
   <p id="notice"><%= notice %></p>
   <%= render "events/tickets_list", tickets: Ticket.all, header: 'All available tickets' %>
   <br>
