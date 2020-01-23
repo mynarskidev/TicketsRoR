@@ -4,7 +4,7 @@
   <% end %>
   <hr>
   <p id="notice"><%= notice %></p>
-  <%= render "events/tickets_list", tickets: Ticket.all, header: 'All available tickets' %>
+  <%= render "events/tickets_list", tickets: Ticket.all, header: 'All tickets' %>
   <br>
   <div class="container">
     <button class="btn btn-success" onclick="location.href='/tickets/new'" >
