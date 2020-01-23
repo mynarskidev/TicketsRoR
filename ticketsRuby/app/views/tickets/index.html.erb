@@ -7,8 +7,17 @@
   <%= render "events/tickets_list", tickets: Ticket.all, header: 'All available tickets' %>
   <br>
   <div class="container">
-    <button class="btn btn-default" onclick="location.href='/tickets/new'" >
+    <button class="btn btn-success" onclick="location.href='/tickets/new'" >
       <%= link_to 'New Ticket', new_ticket_path %>
     </button>
   </div>
 </div>
+<% if user_signed_in? %>
+<script>
+  localStorage.setItem("loggedIn", 'true');
+</script>
+<% else %>
+  <script>
+    localStorage.setItem("loggedIn", 'false');
+  </script>
+<% end %>
